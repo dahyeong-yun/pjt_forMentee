@@ -1,3 +1,5 @@
+- 해당 블로그 프로젝트를 참고 했습니다. <https://melonpeach.tistory.com/2?category=806570>
+
 ## 기술 스택
 
 - 내부(소스 상 반영)

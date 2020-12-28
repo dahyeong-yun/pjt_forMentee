@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardMapper">
 	<insert id="insert">
-	INSERT INTO heroku_f5001ce150aed16.mp_board (
+	INSERT INTO mp_board (
             brd_title
           , brd_content
           , brd_writer
@@ -15,4 +15,23 @@
           , #{brd_writer}
           , NOW())
 	</insert>
+	
+	<select id="list" resultType="com.ta9.basic.vo.BoardVo">
+	SELECT brd_no
+		 , brd_title
+		 , brd_writer
+		 , brd_created
+	  FROM mp_board
+	 ORDER BY brd_no DESC
+	</select>
+	
+	<select id="read" parameterType="int" resultType="com.ta9.basic.vo.BoardVo">
+	SELECT brd_no
+		 , brd_title
+		 , brd_content
+		 , brd_writer
+		 , brd_created
+	 FROM mp_board
+	WHERE brd_no = #{brd_no}
+	</select>
 </mapper>

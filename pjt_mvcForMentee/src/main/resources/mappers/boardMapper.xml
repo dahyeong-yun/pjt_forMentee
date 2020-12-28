@@ -3,5 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardMapper">
-   
+	<insert id="insert">
+	INSERT INTO heroku_f5001ce150aed16.mp_board (
+            brd_title
+          , brd_content
+          , brd_writer
+          , brd_created
+    ) VALUES (
+            #{brd_title}
+          , #{brd_content}
+          , #{brd_writer}
+          , NOW())
+	</insert>
 </mapper>

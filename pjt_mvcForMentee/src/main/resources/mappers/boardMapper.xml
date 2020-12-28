@@ -34,4 +34,17 @@
 	 FROM mp_board
 	WHERE brd_no = #{brd_no}
 	</select>
+	
+	<update id="update" parameterType="com.ta9.basic.vo.BoardVo">
+	UPDATE mp_board
+	   SET brd_title   = #{brd_title}
+	   	 , brd_content = #{brd_content}
+	 WHERE brd_no = #{brd_no}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+	DELETE 
+	  FROM MP_BOARD
+	 WHERE brd_no = #{brd_no}
+	</delete>
 </mapper>

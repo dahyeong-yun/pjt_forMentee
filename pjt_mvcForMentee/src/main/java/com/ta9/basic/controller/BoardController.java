@@ -14,40 +14,64 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/board")
 public class BoardController {
 
 	private final BoardService boardService;
 
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	// °Ô½ÃÆÇ ±Û ÀÛ¼º È­¸é
-		@RequestMapping(value = "/board/writeView", method = RequestMethod.GET)
-		public void writeView() throws Exception{
-			logger.info("writeView");
-			
-		}
+	// ê²Œì‹œë¬¼ ì‘ì„± í˜ì´ì§€
+	@RequestMapping(value = "/writeView", method = RequestMethod.GET)
+	public void writeView() throws Exception{
+		logger.info("writeView");
+	}
+	
+	// ê²Œì‹œë¬¼ ì‘ì„±
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	public String write(BoardVo boardVo) throws Exception{
+		logger.info("write");
+		boardService.write(boardVo);
+		return "redirect:/board/list";
+	}
 		
-		// °Ô½ÃÆÇ ±Û ÀÛ¼º
-		@RequestMapping(value = "/board/write", method = RequestMethod.POST)
-		public String write(BoardVo boardVo) throws Exception{
-			logger.info("write");
-			boardService.write(boardVo);
-			return "redirect:/";
-		}
-		
-		// °Ô½ÃÆÇ ¸ñ·Ï Á¶È¸
-		@RequestMapping(value = "/list", method = RequestMethod.GET)
-		public String list(Model model) throws Exception{
-			logger.info("list");
-			model.addAttribute("list", boardService.list());
-			return "board/list";
-		}
-		
-		// °Ô½ÃÆÇ Á¶È¸
-		@RequestMapping(value = "/readView", method = RequestMethod.GET)
-		public String read(BoardVo boardVO, Model model) throws Exception{
-			logger.info("read");
-			model.addAttribute("read", boardService.read(boardVO.getBrd_no()));
-			return "board/readView";
-		}
+	// ê²Œì‹œë¬¼ ëª©ë¡
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String list(Model model) throws Exception{
+		logger.info("list");
+		model.addAttribute("list", boardService.list());
+		return "board/list";
+	}
+	
+	// ê²Œì‹œë¬¼ ì¡°íšŒ
+	@RequestMapping(value = "/readView", method = RequestMethod.GET)
+	public String read(BoardVo boardVo, Model model) throws Exception{
+		logger.info("read");
+		model.addAttribute("read", boardService.read(boardVo.getBrd_no()));
+		return "board/readView";
+	}
+	
+	// ê²Œì‹œë¬¼ ìˆ˜ì • í˜ì´ì§€
+	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
+	public String updateView(BoardVo boardVo, Model model) throws Exception{
+		logger.info("updateView");
+		model.addAttribute("update", boardService.read(boardVo.getBrd_no()));
+		return "board/updateView";
+	}
+	
+	// ê²Œì‹œë¬¼ ìˆ˜ì •
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(BoardVo boardVo) throws Exception{
+		logger.info("update");
+		boardService.update(boardVo);
+		return "redirect:/board/list";
+	}
+
+	// ê²Œì‹œë¬¼ ì‚­ì œ
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String delete(BoardVo boardVo) throws Exception{
+		logger.info("delete");
+		boardService.delete(boardVo.getBrd_no());
+		return "redirect:/board/list";
+	}
 }

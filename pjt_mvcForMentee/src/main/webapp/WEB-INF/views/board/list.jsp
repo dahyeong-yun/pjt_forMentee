@@ -12,9 +12,9 @@
 			</header>
 			
 			<hr />
-			<nav>
-			  홈 - 글 작성
-			</nav>
+			<div>
+				<%@include file="template/nav.jsp" %>
+			</div>
 			<hr />
 			
 			<section id="container">
@@ -25,11 +25,7 @@
 						<c:forEach items="${list}" var = "list">
 							<tr>
 								<td><c:out value="${list.brd_no}" /></td>
-<<<<<<< HEAD
-								<td><a href="/readView?brd_no=${list.brd_no}"><c:out value="${list.brd_title}" /></a></td>
-=======
-								<td><c:out value="${list.brd_title}" /></td>
->>>>>>> branch 'main' of https://github.com/dahyeong-yun/pjt_forMentee.git
+								<td><a href="/board/readView?brd_no=${list.brd_no}"><c:out value="${list.brd_title}" /></a></td>
 								<td><c:out value="${list.brd_writer}" /></td>
 								<td><c:out value="${{list.brd_created}}" /></td>
 								<td><fmt:formatDate value="${list.brd_created}" pattern="yyyy-MM-dd"/></td>

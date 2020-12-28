@@ -30,4 +30,14 @@ public class BoardDaoImpl implements BoardDao {
 	public BoardVo read(int brd_no) throws Exception {
 		return sqlSession.selectOne("boardMapper.read", brd_no);
 	}
+
+	@Override
+	public void update(BoardVo boardVo) throws Exception {
+		sqlSession.update("boardMapper.update", boardVo);
+	}
+
+	@Override
+	public void delete(int brd_no) throws Exception {
+		sqlSession.delete("boardMapper.delete", brd_no);
+	}
 }

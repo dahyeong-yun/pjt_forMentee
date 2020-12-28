@@ -1,5 +1,7 @@
 package com.ta9.basic.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.ta9.basic.dao.BoardDao;
@@ -17,6 +19,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void write(BoardVo boardVo) throws Exception {
 		dao.write(boardVo);
+	}
+
+	@Override
+	public List<BoardVo> list() throws Exception {
+		return dao.list();
 	}
 
 }

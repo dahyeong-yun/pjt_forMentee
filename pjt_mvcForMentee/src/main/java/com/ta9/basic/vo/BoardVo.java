@@ -1,6 +1,6 @@
 package com.ta9.basic.vo;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,5 +12,5 @@ public class BoardVo {
 	private String brd_title;
 	private String brd_content;
 	private String brd_writer;
-	private LocalDateTime brd_created;
+	private Timestamp brd_created;
 }

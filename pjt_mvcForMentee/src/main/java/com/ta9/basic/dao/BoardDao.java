@@ -8,4 +8,5 @@ public interface BoardDao {
 	public void write(BoardVo boardVo) throws Exception;
 	public List<BoardVo> list() throws Exception;
 	public BoardVo read(int brd_no) throws Exception;
+
 }

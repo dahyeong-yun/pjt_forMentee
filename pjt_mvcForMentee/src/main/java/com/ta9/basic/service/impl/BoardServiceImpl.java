@@ -31,4 +31,14 @@ public class BoardServiceImpl implements BoardService {
 		return dao.read(brd_no);
 	}
 
+	@Override
+	public void update(BoardVo boardVo) throws Exception {
+		dao.update(boardVo);
+	}
+
+	@Override
+	public void delete(int brd_no) throws Exception {
+		dao.delete(brd_no);
+	}
+
 }

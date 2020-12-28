@@ -20,7 +20,7 @@ public class BoardController {
 	private final BoardService boardService;
 
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
-	
+
 	// 게시물 작성 페이지
 	@RequestMapping(value = "/writeView", method = RequestMethod.GET)
 	public void writeView() throws Exception{
@@ -34,7 +34,7 @@ public class BoardController {
 		boardService.write(boardVo);
 		return "redirect:/board/list";
 	}
-		
+	
 	// 게시물 목록
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Model model) throws Exception{

@@ -17,8 +17,8 @@ public class BoardDaoImpl implements BoardDao {
 	private final SqlSession sqlSession;
 	
 	@Override
-	public void write(BoardVo boardVo) throws Exception {
-		sqlSession.insert("boardMapper.insert", boardVo);
+	public int write(BoardVo boardVo) throws Exception {
+		return sqlSession.insert("boardMapper.insert", boardVo);
 	}
 
 	@Override
